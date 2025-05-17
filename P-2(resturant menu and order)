@@ -1,0 +1,51 @@
+//for a resturant menue abd order
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    printf("Welcome to the resturant!\n");
+    while(1){
+    int n, total1, total2, total3, quantity;
+    int price[3]={250,220,30};
+    char p[100]="Pizza";
+    char b[100]="Burger";
+    char c[100]="Cold drink";
+
+
+    printf("\nMenu:\n");
+    printf("\n0- Pizza(250 tk)\n 1-Burger(220tk)\n 2- Cold drink(30 tk)\n");
+    printf("\nEnter the item number you want to buy: ");
+    scanf("%d",& n);
+
+    switch(n)
+    {
+    case 0:
+        printf("Enter the quantity: ");
+        scanf("%d", & quantity);
+        total1=price[0]*quantity;
+        printf("you orderd %d %s\n", quantity,p);
+        printf("\nTotal cost: %d", total1);
+        break;
+        case 1:
+        printf("Enter the quantity: ");
+        scanf("%d", & quantity);
+        total2=price[1]*quantity;
+        printf("you orderd %d %s\n", quantity,b);
+        printf("\nTotal cost: %d\n", total2);
+        break;
+        case 2:
+        printf("Enter the quantity: ");
+        scanf("%d", & quantity);
+        total3=price[2]*quantity;
+        printf("you orderd %d %s\n", quantity,c);
+        printf("\nTotal cost: %d", total3);
+        break;
+
+        case 3:
+            return 0;
+
+        default:
+            printf("Invalid try");
+    }
+    }
+}
