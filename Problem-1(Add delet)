@@ -1,0 +1,76 @@
+//write a c code that add,delet, display 
+#include<stdio.h>
+#include<string.h>
+
+void add(int value);
+void delet(int value);
+int a[100], count=0;
+
+void add(int value)
+{
+    
+   a[count]=value;
+   count++;
+  
+printf("added: %d\n" , value);
+}
+
+void delet(int value){
+int i, pos=0;
+for (i = pos; i < count - 1; i++) {
+        a[i] = a[i + 1];
+    }
+    count--;
+    printf("Deleted: %d\n", value);
+}
+
+
+//dispaly data
+    void display()
+    {
+    int i;
+    for(i=0;i<count;i++)
+    printf("%d ",a[i]);
+    }
+
+    int main()
+    {
+        int choice, value;
+
+        while(1){
+        printf("\nmenue\n");
+        printf("1.add\n2.delet\n3.display\n4.exit\n");
+        printf("enter your choice: \n");
+        scanf("%d", &choice);
+
+        switch(choice){
+        case 1:
+        printf("enter value:  ");
+        scanf("%d", &value);
+        add(value);
+        break;
+
+        case 2:
+        printf("enter value:  ");
+        scanf("%d", &value);
+        delet(value);
+        break;
+
+        case 3:
+            display();
+            break;
+
+        case 4:
+            return 0;
+
+        default:
+            printf("invalid");
+
+        }
+        }
+    }
+    
+    
+    
+    
+    
