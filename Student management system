@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <string.h>
+struct Student {
+    char name[100];
+    int id[100];
+    char phone[100];
+};
+struct Student students[100];
+int count = 0;
+
+void addStudent() {
+    printf("Enter student name: ");
+    scanf(" %[\n]", students[count].name);
+    printf("Enter student ID: ");
+    scanf("%d", &students[count].id);
+    printf("Enter phone number: ");
+    scanf(" %[\n]", students[count].phone);
+    count++;
+    printf("Student added.\n");
+}
+
+void displayStudent() {
+    printf("\nStudent List\n");
+    for (int i = 0; i < count; i++) {
+        printf("Name : %s\n", students[i].name);
+        printf("ID   : %d\n", students[i].id);
+        printf("Phone: %s\n", students[i].phone);
+    
+}
+void deleteStudent() {
+    int id;
+    printf("Enter ID to delete: ");
+    scanf("%d", &id);
+    for (int i = 0; i < count; i++) {{
+            for (int j = i; j < count - 1; j++) {
+                students[j] = students[j + 1];
+            }
+            count--;
+            printf("Student deleted.\n");
+    }
+int main() {
+    int choice;
+
+    while (1) {
+        printf("\nStudent Management System\n");
+        printf("1. Add Student\n2. Display All Students\n3. Delete Student by ID\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            addStudent();
+            break;
+        case 2:
+            displayStudent();
+            break;
+        case 3:
+            deleteStudent();
+            break;
+        case 4:
+            return 0;
+        default:
+            printf("Invalid choice! Please try again.\n");
+        }
+    }
+}
